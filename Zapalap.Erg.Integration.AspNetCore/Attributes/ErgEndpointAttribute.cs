@@ -11,7 +11,7 @@ namespace Zapalap.Erg.Integration.AspNetCore
         public string Alias { get; private set; }
         public string Description { get; private set; }
 
-        public ErgEndpointAttribute(string template, string alias, string description) : base(template)
+        public ErgEndpointAttribute(string route, string alias, string description) : base(route)
         {
             Alias = alias;
             Description = description;

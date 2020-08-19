@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Zapalap.Erg.Cli.Config;
+using Zapalap.Erg.Cli.Utils;
 using Zapalap.Erg.Cli.Verbs;
 using Zapalap.Erg.Core.Models;
 
@@ -15,30 +16,34 @@ namespace Zapalap.Erg.Cli.Commands
     {
         private readonly ConfigWriter ConfigWriter;
         private readonly HttpClient HttpClient;
+        private readonly WelcomeHelper WelcomeHelper;
 
         public Discover()
         {
             ConfigWriter = new ConfigWriter("endpoints.json");
             HttpClient = new HttpClient();
+            WelcomeHelper = new WelcomeHelper();
         }
 
         public async Task<int> Execute(DiscoverOptions options)
         {
+            WelcomeHelper.PrintWelcomeMessage();
+
             var baseUrl = new Uri(options.Url);
             var targetUrl = new Uri(baseUrl, "erg/discover");
             var response = await HttpClient.GetAsync(targetUrl);
 
             if (!response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"An error occured while trying to discover erg endpoints on the following url: {targetUrl}");
-                Console.WriteLine($"Reason: {response.StatusCode} {response.ReasonPhrase}");
+                Console.WriteLine($"[erg-discover] could not discover runnable endpoints @ {targetUrl}");
+                Console.WriteLine($"[erg-discover] {response.StatusCode}");
                 return -1;
             }
 
             var content = await response.Content.ReadAsStringAsync();
             var discoverableEndpoints = JsonConvert.DeserializeObject<List<DiscoverableEndpoint>>(content);
 
-            Console.WriteLine($"Discovered following endpoints @ {targetUrl}");
+            Console.WriteLine($"[erg-discover] discovered following endpoints @ {targetUrl}");
             Console.WriteLine("");
 
             ConsoleTable.From(discoverableEndpoints).Write(Format.Minimal);
@@ -47,11 +52,11 @@ namespace Zapalap.Erg.Cli.Commands
             try
             {
                 ConfigWriter.WriteEndpointMetadata(discoverableEndpoints);
-                Console.WriteLine($"Successfully saved endpoint data");
+                Console.WriteLine($"[erg-discover] Successfully saved endpoint data");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error while saving endpoint data: {ex.Message}");
+                Console.WriteLine($"[erg-discover] Error while saving endpoint data: {ex.Message}");
                 return 1;
             }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Zapalap.Erg.Integration.AspNetCore;
 
 namespace Zapalap.Erg.DemoWeb.Controllers
@@ -25,6 +26,7 @@ namespace Zapalap.Erg.DemoWeb.Controllers
         }
 
         [HttpGet]
+        [ErgEndpoint(route: "data", alias: "weather-service", description: "Downloads weather data")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -37,18 +39,14 @@ namespace Zapalap.Erg.DemoWeb.Controllers
             .ToArray();
         }
 
-        [ErgEndpoint(template: "~/api/recalculate-acl",
-            alias: "recalculate-acl",
-            description: "Recalculates all ACL entries for every entity")]
+        [ErgEndpoint(route: "~/api/recalculate-acl", alias: "recalculate-acl", description: "Recalculates all ACL entries for every entity")]
         [HttpGet]
         public ActionResult RecalculateAcl()
         {
             return Content("recalculated lol");
         }
 
-        [ErgEndpoint(template: "updateWeatherStats",
-            alias: "weather-stats",
-            description: "Updates weather stats for all sources")]
+        [ErgEndpoint(route: "updateWeatherStats", alias: "weather-stats", description: "Updates weather stats for all sources")]
         public ActionResult PostUpdateWeatherStats()
         {
             return Content("weather");

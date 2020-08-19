@@ -84,14 +84,17 @@ namespace Zapalap.Erg.Integration.AspNetCore.Middleware
                 return;
             }
 
-            foreach (var endpoint in DiscoverableEndpoints)
+            var endpoints = DiscoverableEndpoints.Select(e => new DiscoverableEndpoint
             {
-                endpoint.Url = $"{context.Request.Scheme}://{context.Request.Host}/{endpoint.Url}";
-            }
+                Alias = e.Alias,
+                Method = e.Method,
+                Description = e.Description,
+                Url = $"{context.Request.Scheme}://{context.Request.Host}/{e.Url}"
+            });
 
             context.Response.StatusCode = 200;
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(DiscoverableEndpoints));
+            await context.Response.WriteAsync(JsonConvert.SerializeObject(endpoints));
         }
     }
 }

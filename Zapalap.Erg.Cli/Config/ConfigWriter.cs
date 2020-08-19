@@ -14,7 +14,6 @@ namespace Zapalap.Erg.Cli.Config
         public ConfigWriter(string configFileName)
         {
             ConfigFileName = configFileName;
-
         }
 
         public void WriteEndpointMetadata(IEnumerable<DiscoverableEndpoint> endpoints)
