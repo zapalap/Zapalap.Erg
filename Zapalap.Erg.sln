@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.Erg.Cli", "Zapalap.Erg\Zapalap.Erg.Cli.csproj", "{C2498C1F-D31D-4049-B1D0-489953C6970D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zapalap.Erg.DemoWeb", "Zapalap.Erg.DemoWeb\Zapalap.Erg.DemoWeb.csproj", "{9BD0858A-58EE-4613-B5A4-1D700C12D1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.Erg.DemoWeb", "Zapalap.Erg.DemoWeb\Zapalap.Erg.DemoWeb.csproj", "{9BD0858A-58EE-4613-B5A4-1D700C12D1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zapalap.Erg.Integration.AspNetCore", "Zapalap.Erg.Integration.AspNetCore\Zapalap.Erg.Integration.AspNetCore.csproj", "{66A3A2A1-D86E-444F-A156-947F818A13EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.Erg.Integration.AspNetCore", "Zapalap.Erg.Integration.AspNetCore\Zapalap.Erg.Integration.AspNetCore.csproj", "{66A3A2A1-D86E-444F-A156-947F818A13EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zapalap.Erg.Cli", "Zapalap.Erg.Cli\Zapalap.Erg.Cli.csproj", "{B2EEC455-BFC9-4D72-B929-34A0DD603DFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.Erg.Core", "Zapalap.Erg.Annotations\Zapalap.Erg.Core.csproj", "{5212D343-6689-4D65-ADE7-E072CCF061E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zapalap.Erg.Core", "Zapalap.Erg.Core\Zapalap.Erg.Core.csproj", "{09B130C6-7D0A-493F-A2D3-450EEBF43716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C2498C1F-D31D-4049-B1D0-489953C6970D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2498C1F-D31D-4049-B1D0-489953C6970D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2498C1F-D31D-4049-B1D0-489953C6970D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2498C1F-D31D-4049-B1D0-489953C6970D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9BD0858A-58EE-4613-B5A4-1D700C12D1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9BD0858A-58EE-4613-B5A4-1D700C12D1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD0858A-58EE-4613-B5A4-1D700C12D1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,10 +25,14 @@ Global
 		{66A3A2A1-D86E-444F-A156-947F818A13EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A3A2A1-D86E-444F-A156-947F818A13EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A3A2A1-D86E-444F-A156-947F818A13EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5212D343-6689-4D65-ADE7-E072CCF061E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5212D343-6689-4D65-ADE7-E072CCF061E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5212D343-6689-4D65-ADE7-E072CCF061E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5212D343-6689-4D65-ADE7-E072CCF061E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EEC455-BFC9-4D72-B929-34A0DD603DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EEC455-BFC9-4D72-B929-34A0DD603DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EEC455-BFC9-4D72-B929-34A0DD603DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EEC455-BFC9-4D72-B929-34A0DD603DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B130C6-7D0A-493F-A2D3-450EEBF43716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B130C6-7D0A-493F-A2D3-450EEBF43716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B130C6-7D0A-493F-A2D3-450EEBF43716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B130C6-7D0A-493F-A2D3-450EEBF43716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

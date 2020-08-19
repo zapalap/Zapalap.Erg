@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Zapalap.Erg.Annotations\Zapalap.Erg.Core.csproj" />
+    <ProjectReference Include="..\Zapalap.Erg.Core\Zapalap.Erg.Core.csproj" />
   </ItemGroup>
 
 </Project>
