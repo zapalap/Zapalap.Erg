@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Zapalap.Erg.Core.Models;
+using Zapalap.Erg.Integration.AspNetCore.Attributes;
 
 namespace Zapalap.Erg.Integration.AspNetCore.Middleware
 {
@@ -36,13 +37,13 @@ namespace Zapalap.Erg.Integration.AspNetCore.Middleware
             var ergEndpointMembers = assembly.GetTypes()
                     .Where(t => t.IsSubclassOf(typeof(ControllerBase)))
                     .SelectMany(t => t.GetMembers()
-                                  .Where(m => Attribute.IsDefined(m, typeof(ErgEndpointAttribute))));
+                                  .Where(m => Attribute.IsDefined(m, typeof(UtilityEndpointAttribute))));
 
             var discoverableEndpoints = new List<DiscoverableEndpoint>();
 
             foreach (var ergEndpointMember in ergEndpointMembers)
             {
-                var attributeData = ergEndpointMember.GetCustomAttribute<ErgEndpointAttribute>();
+                var attributeData = ergEndpointMember.GetCustomAttribute<UtilityEndpointAttribute>();
                 var endpoint = new DiscoverableEndpoint
                 {
                     Alias = attributeData.Alias,

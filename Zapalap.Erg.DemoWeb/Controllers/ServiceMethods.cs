@@ -5,12 +5,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Zapalap.Erg.Integration.AspNetCore;
+using Zapalap.Erg.Integration.AspNetCore.Attributes;
 
 namespace Zapalap.Erg.DemoWeb.Controllers
 {
     public class ServiceMethods : ControllerBase
     {
-        [ErgEndpoint(route:"api/v1/employees/removesalaries", alias:"fix-salaries", description:"Removes salary information from RawData column in database.")]
+        [UtilityEndpoint("api/v1/employees/removesalaries",
+            Alias = "fix-salaries",
+            Description = "Removes salary information from RawData column in database.")]
         public ActionResult RemoveSalaryInformationFromRawData()
         {
             var count = 0;
